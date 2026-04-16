@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmgj7rg1ehi5e"]
+
+[ext_resource type="Texture2D" uid="uid://da5n0p54n511v" path="res://assets/sprites/slime_green.png" id="1_6yu6v"]
+[ext_resource type="Script" path="res://scripts/slime.gd" id="1_mlyvv"]
+[ext_resource type="PackedScene" uid="uid://c8wck43hj6npt" path="res://scenes/killzone.tscn" id="2_henu1"]
+[ext_resource type="PackedScene" uid="uid://bdfpp4lx10aq8" path="res://scenes/monsterkill.tscn" id="4_nach8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5pgd"]
+atlas = ExtResource("1_6yu6v")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbcfg"]
+atlas = ExtResource("1_6yu6v")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sipgr"]
+atlas = ExtResource("1_6yu6v")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jguj0"]
+atlas = ExtResource("1_6yu6v")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c2ryl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5pgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbcfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sipgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jguj0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_556i1"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3qc3"]
+size = Vector2(13, 4.5)
+
+[node name="Slime" type="Node2D"]
+position = Vector2(1, -7)
+script = ExtResource("1_mlyvv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 2)
+sprite_frames = SubResource("SpriteFrames_c2ryl")
+autoplay = "default"
+frame = 3
+frame_progress = 0.202104
+
+[node name="Killzone" parent="." instance=ExtResource("2_henu1")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-1, 7)
+shape = SubResource("RectangleShape2D_556i1")
+
+[node name="RayCast2Dright" type="RayCast2D" parent="."]
+position = Vector2(-1, 5)
+target_position = Vector2(13, 0)
+
+[node name="RayCast2Dleft" type="RayCast2D" parent="."]
+position = Vector2(-1, 5)
+target_position = Vector2(-11, 0)
+
+[node name="Monsterkill" parent="." instance=ExtResource("4_nach8")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monsterkill"]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_n3qc3")
+debug_color = Color(0.761103, 0.177903, 1, 0.42)

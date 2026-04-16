@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7l4rl83ltne4"]
+
+[ext_resource type="Texture2D" uid="uid://dkuvy6jxmux4x" path="res://assets/sprites/fruit.png" id="1_07wh2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbnj5"]
+atlas = ExtResource("1_07wh2")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qe2dj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbnj5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qe2dj")

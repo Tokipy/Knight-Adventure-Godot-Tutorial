@@ -29,3 +29,5 @@ Mini juego de plataformas desarrollado en Godot como práctica, basado en un tut
 Incluye mecánicas básicas como movimiento, salto, interacción con enemigos y una modificación propia: doble salto.
 Tecnologías utilizadas: Godot Engine, GDScript, sistema de escenas y nodos.
 Assets obtenidos de recursos gratuitos para uso educativo.
+
+<img width="1919" height="1008" alt="image" src="https://github.com/user-attachments/assets/2f556acc-6277-4b24-a2d0-26fc2427f456" />
